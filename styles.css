@@ -1,0 +1,77 @@
+*, *::after, *::before {
+box-sizing: border-box;
+}
+:root {
+   --hue: 500;
+   --saturation: 50%;
+   --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+body {
+  margin: 0;  
+  background-color: var(--background-color);
+  overflow: hidden;
+}
+
+.paddle {
+--position: 50;
+position: absolute;
+background-color: green;
+top: calc(var(--position) * 1vh);
+transform: translateY(-50%);
+width: 2.3vh;
+height: 10vh;
+border-radius: 12px;
+background-image: radial-gradient(
+  circle at top,
+  green,
+  darkgreen,
+  #03A895)
+}
+
+.paddle.left {
+left: 1vw;
+}
+
+.paddle.right {
+right: 1vw;    
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: green;
+    left: calc(var(--x) * 1vw);
+    top: calc(var(--y) * 1vh);
+    transform: translate(-50%, 50%);
+    width: 3.9vh;
+    height: 3.9vh;
+    border-radius: 13px;
+    background-image: radial-gradient(
+      circle at top,
+      green,
+      darkgreen,red)   
+}
+
+.score {
+ display: flex;
+ justify-content: center;  
+ font-weight: bold;
+ font-family: cursive;
+ font-size: 7vh; 
+ color: white;
+}
+
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: .5;
+}
+
+.score > :first-child {
+  text-align: right;  
+  border-right: 0.5vh solid white;
+}
